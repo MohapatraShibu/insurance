@@ -4,7 +4,7 @@ setup(
     name='src',
     packages=find_packages(),
     version='0.1.0',
-    description='abc',
+    description='This project is to demostrate ML/MLOps',
     author='MohapatraShibu',
     license='MIT',
 )

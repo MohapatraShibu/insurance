@@ -23,4 +23,4 @@ model_dir: saved_models
 
 reports: 
   params: reports/params.json
-  scores: reports/scores.jsom
+  scores: reports/scores.json
