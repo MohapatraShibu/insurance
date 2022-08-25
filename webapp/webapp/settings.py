@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "firstApp",
+    "firstApp.apps.FirstappConfig",
 ]
 
 MIDDLEWARE = [
@@ -77,7 +77,12 @@ WSGI_APPLICATION = "webapp.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'NAME':'insurance',
+        'USER':'postgres',
+        'PASSWORDS':'shibu',
+        'HOST':'localhost',
+        'PORT':'5432'
+
     }
 }
 

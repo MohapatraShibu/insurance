@@ -7,9 +7,10 @@ import os
 import json
 import pandas as pd
 import numpy as np
-#from .models import insurance
+from .models import insurance
 import psycopg2
 import math
+
 # Create your views here.
 
 def index(request):
@@ -23,8 +24,13 @@ def result(request):
     lis.append(float(request.GET['bmi']))
     lis.append(float(request.GET['children']))
     lis.append(float(request.GET['smoker']))
-    lis.append(float(request.GET['region']))
+    lis.append(float(request.GET['region']), default='')
 
     answer=cls.predict([lis]).tolist()[0]
+
+    b=insurance(age=request.GET['age'],sex=request.GET['sex'],bmi=request.GET['bmi'],
+    children=request.GET['children'],smoker=request.GET['smoker'],region=request.GET['region'],
+    charges=answer)
+    b.save()
 
     return render(request, "index.html", {'answer':answer})
